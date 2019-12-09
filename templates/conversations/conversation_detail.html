@@ -1,0 +1,13 @@
+<span>Conversation between:</span>
+{% for user in conversation.participants.all %}
+<span>{{ user.first_name }}</span>
+{% endfor %}
+
+{% if conversation.messages.count == 0 %}
+    no messages
+{% else %}
+    {% for message in conversation.messages.all %}
+        {{ message.user.first_name }}
+        {{ message.message }}
+    {% endfor %}
+{% endif %}

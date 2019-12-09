@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from core import managers as core_managers
 
 
 class User(AbstractUser):
@@ -20,3 +21,4 @@ class User(AbstractUser):
     zzigsa = models.CharField(
         choices=ZZIGSA_CHOICES, max_length=10, default=ZZIGSA_DENIED
     )
+    objects = core_managers.CustomUserManager()
